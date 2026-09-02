@@ -11,9 +11,17 @@ export class GameSocketService {
       this.disconnect();
     }
 
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const host = window.location.host;
-    const wsUrl = `${protocol}//${host}/ws/${roomCode}/${playerId}`;
+    const backendUrl = import.meta.env.VITE_API_URL;
+    let wsUrl;
+    if (backendUrl) {
+      const wsProtocol = backendUrl.startsWith('https') ? 'wss:' : 'ws:';
+      const host = backendUrl.replace(/^https?:\/\//, '');
+      wsUrl = `${wsProtocol}//${host}/ws/${roomCode}/${playerId}`;
+    } else {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      const host = window.location.host;
+      wsUrl = `${protocol}//${host}/ws/${roomCode}/${playerId}`;
+    }
 
     this.ws = new WebSocket(wsUrl);
 
