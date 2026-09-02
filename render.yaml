@@ -10,16 +10,3 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
-
-  - type: web
-    name: dino-king-frontend
-    plan: free
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: dino-king-backend
-          property: url
