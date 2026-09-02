@@ -11,6 +11,10 @@ export function createPixiApp(canvasParent) {
     antialias: true,
   });
 
+  app.view.style.width = '100%';
+  app.view.style.height = '100%';
+  app.view.style.display = 'block';
+
   canvasParent.appendChild(app.view);
 
   // Layered Containers

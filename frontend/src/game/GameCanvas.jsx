@@ -62,10 +62,10 @@ export default function GameCanvas({ onSnapshotRef }) {
     <div
       ref={containerRef}
       style={{
-        width: '1000px',
-        maxWidth: '100%',
-        height: '500px',
-        maxHeight: '70vh',
+        width: '100%',
+        maxWidth: '1000px',
+        aspectRatio: '2 / 1',
+        maxHeight: '60vh',
         border: '4px solid #000',
         borderRadius: '12px',
         boxShadow: '6px 6px 0px rgba(0, 0, 0, 0.2)',

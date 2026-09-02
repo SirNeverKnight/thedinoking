@@ -66,29 +66,25 @@ export default function LeaderboardTable({ players, isGameOver, winner, onPlayAg
   return (
     <div className="leaderboard-sidebar">
       <div className="leaderboard-title">
-        🏆 LIVE LEADERBOARD
+        🏆 LEADERBOARD
       </div>
       {sortedPlayers.map((p, idx) => (
         <div
           key={p.user_id || idx}
           className={`leaderboard-row ${p.is_alive ? 'alive' : 'dead'}`}
         >
-          <div style={{ display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
-            <span style={{ fontSize: '0.6rem', width: '18px', fontWeight: 'bold' }}>#{idx + 1}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', overflow: 'hidden' }}>
             <div
               className="dino-badge"
               style={{ backgroundColor: getDinoColorHex(p.color_id) }}
             />
-            <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', maxWidth: '100px' }}>
+            <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', maxWidth: '90px', fontSize: '0.65rem' }}>
               {p.username}
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <span style={{ fontWeight: 'bold' }}>{Math.round(p.score || 0)}</span>
-            <span className="player-status">
-              {p.is_alive ? <Heart size={12} fill="currentColor" /> : <Skull size={12} />}
-            </span>
+          <div style={{ fontWeight: 'bold', fontSize: '0.65rem' }}>
+            {Math.round(p.score || 0)} pts
           </div>
         </div>
       ))}
