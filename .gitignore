@@ -1,0 +1,28 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+backend/data/*.db
+backend/data/game.db
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+GAme Task.png
+PROJECT_DOCUMENTATION.md
+walkthrough.md
+Assets/Cactus.sprite3
+Assets/Dino.sprite3
+Assets/Sprite3.sprite3
+proposedtools.txt
